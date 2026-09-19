@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weatherly | Weather Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Decorations -->
+    <div class="background-shape shape-one"></div>
+    <div class="background-shape shape-two"></div>
+    <div class="background-shape shape-three"></div>
+
+
+    <main class="weather-app">
+
+        <!-- Header -->
+        <header class="top-header">
+
+            <div class="brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-cloud-sun"></i>
+                </div>
+
+                <div>
+                    <h1>Weatherly</h1>
+                    <p>Smart Weather Dashboard</p>
+                </div>
+            </div>
+
+            <div class="header-label">
+                <i class="fa-solid fa-location-dot"></i>
+                Live Weather
+            </div>
+
+        </header>
+
+
+        <!-- Search Section -->
+        <section class="search-section">
+
+            <div class="section-title">
+                <span>Weather Search</span>
+                <small>Find current weather information</small>
+            </div>
+
+            <div class="search-container">
+
+                <div class="input-wrapper">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="text" id="cityInput" placeholder="Enter city name..." autocomplete="off">
+
+                </div>
+
+                <button id="searchBtn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    Search
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Message -->
+        <div id="message" class="message"></div>
+
+
+        <!-- Weather Result -->
+        <section id="weatherResult" class="weather-result hidden">
+
+
+            <!-- Main Weather Card -->
+            <div class="main-weather-card">
+
+                <div class="location-info">
+
+                    <div class="location-label">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Current Location
+                    </div>
+
+                    <h2 id="cityName">Chennai</h2>
+
+                    <p id="countryName">
+                        India
+                    </p>
+
+                    <p class="date" id="currentDate">
+                        Friday, September 11, 2026
+                    </p>
+
+                </div>
+
+
+                <div class="main-temperature">
+
+                    <div class="weather-icon" id="weatherIcon">
+                        ☀️
+                    </div>
+
+                    <div class="temperature-wrapper">
+
+                        <div class="temperature">
+                            <span id="temperature">--</span>
+                            <sup>°C</sup>
+                        </div>
+
+                        <p id="weatherCondition">
+                            Clear Sky
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Weather Details -->
+            <div class="details-grid">
+
+
+                <!-- Humidity -->
+                <div class="detail-card humidity-card">
+
+                    <div class="detail-icon">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+
+                    <div class="detail-content">
+
+                        <span>Humidity</span>
+
+                        <strong>
+                            <span id="humidity">--</span>%
+                        </strong>
+
+                        <small>Relative humidity</small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Wind -->
+                <div class="detail-card wind-card">
+
+                    <div class="detail-icon">
+                        <i class="fa-solid fa-wind"></i>
+                    </div>
+
+                    <div class="detail-content">
+
+                        <span>Wind Speed</span>
+
+                        <strong>
+                            <span id="windSpeed">--</span>
+                            <small class="unit">km/h</small>
+                        </strong>
+
+                        <small>Current wind</small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Rain -->
+                <div class="detail-card rain-card">
+
+                    <div class="detail-icon">
+                        <i class="fa-solid fa-cloud-rain"></i>
+                    </div>
+
+                    <div class="detail-content">
+
+                        <span>Rain</span>
+
+                        <strong>
+                            <span id="rain">--</span>
+                            <small class="unit">mm</small>
+                        </strong>
+
+                        <small>Current rainfall</small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Feels Like -->
+                <div class="detail-card feels-card">
+
+                    <div class="detail-icon">
+                        <i class="fa-solid fa-temperature-half"></i>
+                    </div>
+
+                    <div class="detail-content">
+
+                        <span>Feels Like</span>
+
+                        <strong>
+                            <span id="feelsLike">--</span>°C
+                        </strong>
+
+                        <small>Apparent temperature</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Status -->
+            <div class="weather-status">
+
+                <div class="status-left">
+
+                    <span class="status-dot"></span>
+
+                    <span>
+                        Weather data available
+                    </span>
+
+                </div>
+
+                <span class="api-source">
+                    Powered by Open-Meteo
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- Welcome Screen -->
+        <section id="welcomeSection" class="welcome-section">
+
+            <div class="welcome-icon">
+                <i class="fa-solid fa-cloud-sun"></i>
+            </div>
+
+            <h2>Explore Weather Around You</h2>
+
+            <p>
+                Enter a city name above to view current
+                temperature, humidity, wind speed and rainfall.
+            </p>
+
+            <div class="feature-list">
+
+                <span>
+                    <i class="fa-solid fa-bolt"></i>
+                    Live Data
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-chart-simple"></i>
+                    Weather Details
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    Responsive
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer>
+
+            <div class="footer-line"></div>
+
+            <p>
+                Weatherly
+                <span>•</span>
+                Built with JavaScript Fetch API
+                <span>•</span>
+                Open-Meteo
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
